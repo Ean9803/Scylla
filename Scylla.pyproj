@@ -22,8 +22,22 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Client.py" />
-    <Compile Include="Server.py" />
+    <Folder Include="MailClient\" />
+    <Folder Include="ICMPPing\" />
+    <Folder Include="WebProxy\" />
+    <Folder Include="UDPPing\" />
+    <Folder Include="WebServer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ICMPPing\ICMPPinger.py" />
+    <Compile Include="MailClient\Mail.py" />
+    <Compile Include="UDPPing\UDPPinger.py" />
+    <Compile Include="WebProxy\Proxy.py" />
+    <Compile Include="WebServer\Web.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WebServer\Grades.html" />
+    <Content Include="WebServer\HelloWorld.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
