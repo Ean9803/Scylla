@@ -31,7 +31,6 @@
   <ItemGroup>
     <Compile Include="ICMPPing\ICMPPinger.py" />
     <Compile Include="MailClient\Mail.py" />
-    <Compile Include="MailClient\test.py" />
     <Compile Include="UDPPing\UDPPinger.py" />
     <Compile Include="WebProxy\Proxy.py" />
     <Compile Include="WebServer\Web.py" />
