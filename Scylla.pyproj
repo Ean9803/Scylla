@@ -4,8 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe10ebf-51b7-4178-8397-bfca1e8b1ce2</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>UDPPing\UDPPinger.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -32,6 +31,7 @@
     <Compile Include="ICMPPing\ICMPPinger.py" />
     <Compile Include="MailClient\Mail.py" />
     <Compile Include="UDPPing\UDPPinger.py" />
+    <Compile Include="UDPPing\UDP_CLIENT.py" />
     <Compile Include="WebProxy\Proxy.py" />
     <Compile Include="WebServer\Web.py" />
   </ItemGroup>
