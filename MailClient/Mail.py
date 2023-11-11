@@ -40,7 +40,8 @@ if recvInit[:3] != '250':
     print('250 reply not received from server.')
 
 # Send RCPT TO command and print server response.
-rcptTo = "RCPT TO: <irobot9803@gmail.com> \r\n"
+sendto = input("Enter recipient: ")
+rcptTo = "RCPT TO: <" + sendto + "> \r\n"
 clientSocket.send(rcptTo.encode())
 recvCode = clientSocket.recv(1024).decode()
 print("After RCPT TO command: " + recvCode)
@@ -56,7 +57,8 @@ if recvInit[:3] != '250':
     print('250 reply not received from server.')
 
 # Send message data.
-subject = "Subject: Hello from code \r\n\r\n" 
+sub = input("Enter subject: ")
+subject = "Subject: " + sub + " \r\n\r\n" 
 clientSocket.send(subject.encode())
 message = input("Enter message: \r\n")
 clientSocket.send(message.encode())
