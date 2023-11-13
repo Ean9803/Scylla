@@ -65,30 +65,6 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
 
         return ("{} bytes from {}: icmp_seq={} ttl={} time={:.3f} ms".format(length, saddr, seq, ttl, rtt))
 
-def sendOnePing(mySocket, destAddr, ID):
-    # Header is type (8), code (8), checksum (16), id (16), sequence (16)
-
-    myChecksum = 0
-    # Make a dummy header with a 0 checksum.
-    # struct -- Interpret strings as packed binary data
-    header = struct.pack("bbHHh", ICMP_ECHO_REQUEST, 0, myChecksum, ID, 1)
-    data = struct.pack("d", time.time())
-    # Calculate the checksum on the data and the dummy header.
-    myChecksum = checksum(str(header + data))
-
-    # Get the right checksum, and put in the header
-    if sys.platform == 'darwin':
-        myChecksum = htons(myChecksum) & 0xffff
-    #Convert 16-bit integers from host to network byte order.
-    else:
-        myChecksum = htons(myChecksum)
-
-    header = struct.pack("bbHHh", ICMP_ECHO_REQUEST, 0, myChecksum, ID, 1)
-    packet = header + data
-    mySocket.sendto(packet, (destAddr, 1)) # AF_INET address must be tuple, not str
-    #Both LISTS and TUPLES consist of a number of objects
-    #which can be referenced by their position number within the object
-
 
 def sendOnePing(mySocket, destAddr, ID):
     # Header is type (8), code (8), checksum (16), id (16), sequence (16)
