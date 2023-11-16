@@ -1,9 +1,12 @@
 #import socket module
+import datetime
 from socket import *
 import sys # In order to terminate the program
 serverSocket = socket(AF_INET, SOCK_STREAM)
 #Prepare a sever socket
 #Fill in start
+serverSocket.bind(('', 12000))
+serverSocket.listen(1)
 #Fill in end
 while True:
     #Establish the connection
@@ -25,7 +28,8 @@ while True:
                           "Connection": "Keep-Alive:"}
             headerLines = "\r\n".join("%s:%s"%(item, headerInfo[item]) for item in headerInfo)
             HTTPResponse = statusLine + headerLines + "\r\n\r\n"
-            for i in range(0, len(outputdata)): 
+            connectionSocket.send(HTTPResponse.encode())
+            for i in range(0, len(outputdata)):
                 connectionSocket.send(outputdata[i].encode())
             connectionSocket.send("\r\n".encode())
  
@@ -33,6 +37,6 @@ while True:
     except IOError:
         #Send response message for file not found
         connectionSocket.send("HTTP/1.1 404 Not Found\r\n\r\n".encode())
-        connectionSocket.send("<html><head></head><body><h1>404 Not Found</h1></body></html>\r\n".encode())        
+        connectionSocket.send("<html><head></head><body><h1>404 Not Found</h1></body></html>\r\n".encode())
 serverSocket.close()
 sys.exit()#Terminate the program after sending the corresponding data

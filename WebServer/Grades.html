@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(odd) {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
-
-<h2>Students Grades</h2>
-
-
-<table style="width:100%">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Grade</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>52</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>80</td>
-  </tr>
-</table>
-
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td>denisha</td>
+            <td>101</td>
+            <td>90%</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>yagna</td>
+            <td>102</td>
+            <td>85%</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>sidhhi</td>
+            <td>103</td>
+            <td>75%</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>komal</td>
+            <td>104</td>
+            <td>88%</td>
+            <td>B</td>
+        </tr>
+    </table>
 </body>
 </html>
